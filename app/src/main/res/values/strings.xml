@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MapNotes</string>
+    <string name="action_settings">Galeria</string>
+    <string name="access_token">pk.eyJ1IjoibmVoYWxlbSIsImEiOiJjaWt5ZGI0M2wwMTFxdXlrc29yaGk2andnIn0.O6NXAAMVWVdql-B2Q2j4sw</string>
+</resources>
