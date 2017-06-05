@@ -127,7 +127,7 @@ public class AddActivity extends AppCompatActivity {
 
     public void openVideo(){
         tookVideo = true;
-        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        Intent takeVideoIntent = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
         // Ensure that there's a camera activity to handle the intent
         if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takeVideoIntent, REQUEST_IMAGE_CAPTURE);
