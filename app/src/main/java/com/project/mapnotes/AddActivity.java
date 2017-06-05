@@ -134,14 +134,33 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
-    public void openCamera(){
+    public void openCamera() {
+
         tookPhoto = true;
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent takePictureIntent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
         // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
+
     }
+//        //Creamos el Intent para llamar a la Camara
+//        Intent cameraIntent = new Intent(
+//                android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//        //Creamos una carpeta en la memeria del terminal
+//        File imagesFolder = new File(
+//                Environment.getExternalStorageDirectory(), "Tutorialeshtml5");
+//        imagesFolder.mkdirs();
+//        //añadimos el nombre de la imagen
+//        File image = new File(imagesFolder, "foto.jpg");
+//        Uri uriSavedImage = Uri.fromFile(image);
+//        //Le decimos al Intent que queremos grabar la imagen
+//        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+//        //Lanzamos la aplicacion de la camara con retorno (forResult)
+//        startActivityForResult(cameraIntent, 1);
+
+
+
 
 
     public void openMic(){
@@ -164,8 +183,8 @@ public class AddActivity extends AppCompatActivity {
 
     public String imageFile() {
 
-        //Cogemos el PATH de la ultima foto tomada
-        String[] projection = { MediaStore.Images.Media.DATA};
+        //Cogemos el PATH del ultimo video tomado
+        String[] projection = { MediaStore.Images.Media.DATA };
         Cursor cursor = managedQuery(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, null, null, null);
         int column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToLast();
