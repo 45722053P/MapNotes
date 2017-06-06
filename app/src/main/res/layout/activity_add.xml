@@ -53,26 +53,6 @@
                 android:layout_marginTop="16dp"
                 android:text="Camera" />
         </LinearLayout>
-        <!-- Other 2 icons here-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/micButton"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:background="@android:drawable/ic_btn_speak_now" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Mic" />
-        </LinearLayout>
 
     </LinearLayout>
 
@@ -156,11 +136,6 @@
             android:id="@+id/checkCamera"
             android:src="@android:drawable/ic_menu_camera" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkMic"
-            android:src="@android:drawable/ic_btn_speak_now" />
 
     </LinearLayout>
 

@@ -1,16 +1,14 @@
 package com.project.mapnotes;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseListAdapter;
 import com.squareup.picasso.Picasso;
 
@@ -18,26 +16,25 @@ import java.io.File;
 
 public class GalleryActivity extends AppCompatActivity {
 
-    ListView listReport;
+    GridView notasGrid;
     TextView reportTitle, reportDescription;
     ImageView imageView;
     VideoView videoView;
     int position1 = 0;
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        listReport = (ListView) findViewById(R.id.reportList);
+        notasGrid = (GridView) findViewById(R.id.notesGrid);
 
 
         MyApplication myApp = (MyApplication) getApplication();
 
-        final FirebaseListAdapter adapter = new FirebaseListAdapter<Report>(this, Report.class, R.layout.report_row, myApp.getRef()) {
+        final FirebaseListAdapter adapter = new FirebaseListAdapter<Nota>(this, Nota.class, R.layout.nota_row, myApp.getRef()) {
             @Override
-            protected void populateView(View v, Report model, int position) {
+            protected void populateView(View v, Nota model, int position) {
                 super.populateView(v, model, position);
 
                 position1 = position;
@@ -74,6 +71,6 @@ public class GalleryActivity extends AppCompatActivity {
             }
         };
 
-        listReport.setAdapter(adapter);
+        notasGrid.setAdapter(adapter);
     }
 }

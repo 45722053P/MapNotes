@@ -1,6 +1,6 @@
 package com.project.mapnotes;
 
-public class Report {
+public class Nota {
 
     private String title;
     private String nota;
@@ -10,10 +10,10 @@ public class Report {
     private String videoPath;
     private String audioPath;
 
-    public Report() {
+    public Nota() {
     }
 
-    public Report(String title, String nota, double latitud, double longitud, String imagePath, String videoPath, String audioPath) {
+    public Nota(String title, String nota, double latitud, double longitud, String imagePath, String videoPath, String audioPath) {
         this.title = title;
         this.nota = nota;
         this.latitud = latitud;

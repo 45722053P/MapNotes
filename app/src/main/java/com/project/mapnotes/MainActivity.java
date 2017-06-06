@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
                             //Creamos un objeto nota de ese elemento
-                            Report report = postSnapshot.getValue(Report.class);
+                            Nota report = postSnapshot.getValue(Nota.class);
                             mapboxMap.addMarker(new MarkerOptions()
                                     .position(new LatLng(report.getLatitud(), report.getLongitud()))
                                     .title(report.getTitle()));

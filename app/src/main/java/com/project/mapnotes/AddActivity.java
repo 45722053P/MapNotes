@@ -46,15 +46,12 @@ public class AddActivity extends AppCompatActivity {
         addNote = (EditText) findViewById(R.id.addNote);
         checkGallery = (ImageView) findViewById(R.id.checkGallery);
         checkCamera = (ImageView) findViewById(R.id.checkCamera);
-        checkMic = (ImageView) findViewById(R.id.checkMic);
         checkGallery.setVisibility(View.INVISIBLE);
         checkCamera.setVisibility(View.INVISIBLE);
-        checkMic.setVisibility(View.INVISIBLE);
 
         //Imagebuttons. Pero tambien se podria hacer con el layout qque coge el imagebutton y el texto
         galleryButton = (ImageButton) findViewById(R.id.galleryButton);
         cameraButton = (ImageButton) findViewById(R.id.cameraButton);
-        micButton = (ImageButton) findViewById(R.id.micButton);
 
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,14 +70,7 @@ public class AddActivity extends AppCompatActivity {
                 //Toast.makeText(getContext(), "Attached photo", Toast.LENGTH_SHORT).show();
             }
         });
-        micButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMic();
-                checkMic.setVisibility(View.VISIBLE);
-                //Toast.makeText(getContext(), "Attached voice note", Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
         FloatingActionButton sendNote = (FloatingActionButton) findViewById(R.id.sendNote);
         sendNote.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +80,7 @@ public class AddActivity extends AppCompatActivity {
                 MyApplication myApp = (MyApplication) getApplication();
                 Firebase note = myApp.getRef().push();
 
-                Report nota = new Report();
+                Nota nota = new Nota();
                 nota.setTitle(addTitle.getText().toString());
                 nota.setNota(addNote.getText().toString());
                 nota.setLatitud(latitude);
@@ -118,7 +108,6 @@ public class AddActivity extends AppCompatActivity {
                 //Escondemos los iconos
                 checkGallery.setVisibility(View.INVISIBLE);
                 checkCamera.setVisibility(View.INVISIBLE);
-                checkMic.setVisibility(View.INVISIBLE);
                 //Toast.makeText(getContext(), videoFile(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -161,13 +150,6 @@ public class AddActivity extends AppCompatActivity {
 
 
 
-
-
-    public void openMic(){
-        final int ACTIVITY_RECORD_SOUND = 1;
-        Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-        startActivityForResult(intent, ACTIVITY_RECORD_SOUND);
-    }
 
     public String videoFile() {
 
